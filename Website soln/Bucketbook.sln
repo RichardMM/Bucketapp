@@ -24,13 +24,22 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website main", "website mai
 		SlnRelativePath = "website main\"
 	EndProjectSection
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "FlaskProject", "FlaskProject\FlaskProject.pyproj", "{D3E36DAD-8F13-42AD-B638-889479BAD60C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E76D8CE2-A411-4546-A87B-98879F4D6F27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E76D8CE2-A411-4546-A87B-98879F4D6F27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E76D8CE2-A411-4546-A87B-98879F4D6F27}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E76D8CE2-A411-4546-A87B-98879F4D6F27}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D3E36DAD-8F13-42AD-B638-889479BAD60C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E36DAD-8F13-42AD-B638-889479BAD60C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E36DAD-8F13-42AD-B638-889479BAD60C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E36DAD-8F13-42AD-B638-889479BAD60C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
