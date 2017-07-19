@@ -1,37 +1,33 @@
 """
-Routes and views for the flask application.
+Routes and views for the bucketbook application.
 """
 
-from datetime import datetime
-from flask import render_template
+from flask import render_template, session, request, url_for, redirect
 from FlaskProject import app
 
-@app.route('/')
-@app.route('/home')
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+
+@app.route('/<username>/my_buckets')
+def mybuckets(username):
+    """Renders the my buckets page."""
+    return render_template('my buckets.html')
+
+@app.route('/login', methods=["POST", "GET"])
+def login():
+    """Renders the login page."""
+    return render_template('login.html')
+
+@app.route('/', methods=["POST", "GET"])
 def home():
-    """Renders the home page."""
-    return render_template(
-        'index.html',
-        title='Home Page',
-        year=datetime.now().year,
-    )
+    """Renders the home/create account page."""
+    if request.method == "POST":
+        session["firstname"] = request.form["firstname"]
+        session["email"] = request.form["emailaddress"]
+        session["password"] = request.form["password"]
+        return redirect('/login')
+    else:
+        return render_template( 'create-account.html' )
 
-@app.route('/contact')
-def contact():
-    """Renders the contact page."""
-    return render_template(
-        'contact.html',
-        title='Contact',
-        year=datetime.now().year,
-        message='Your contact page.'
-    )
 
-@app.route('/about')
-def about():
-    """Renders the about page."""
-    return render_template(
-        'about.html',
-        title='About',
-        year=datetime.now().year,
-        message='Your application description page.'
-    )
+
+

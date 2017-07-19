@@ -138,3 +138,11 @@ __pycache__/
 
 /Website soln/FlaskProject/env/.ptvs
 *.pyproj
+/Website soln/FlaskProject/bin/wfastcgi.py
+/Website soln/FlaskProject/bin/Microsoft.PythonTools.WebRole.dll
+/Website soln/FlaskProject/bin/Microsoft.PythonTools.AzureSetup.exe.config
+/Website soln/FlaskProject/bin/Microsoft.PythonTools.AzureSetup.exe
+/Website soln/FlaskProject/bin/AzureSetup.cfg
+/Website soln/FlaskProject/obj/Debug
+/Website soln/FlaskProject/web.debug.config
+/Website soln/FlaskProject/web.config
