@@ -8,12 +8,12 @@ from FlaskProject import app
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 @app.route('/my_buckets/', methods=["POST", "GET"])
-def mybuckets(username):
+def mybuckets():
     """Renders the my buckets page."""
     return render_template('my buckets.html')
 
-@app.route('/bucketlist/<newmarket>', methods=["POST", "GET"])
-def bucketlist(username,bucketname):
+@app.route('/bucketlist/<newbucket>', methods=["POST", "GET"])
+def bucketlist(newbucket):
     return render_template("samplebucketlist1.html")
 
 @app.route('/login', methods=["POST", "GET"])
