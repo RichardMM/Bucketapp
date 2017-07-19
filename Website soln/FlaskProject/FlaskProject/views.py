@@ -7,10 +7,14 @@ from FlaskProject import app
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
-@app.route('/<username>/my_buckets')
+@app.route('/my_buckets/', methods=["POST", "GET"])
 def mybuckets(username):
     """Renders the my buckets page."""
     return render_template('my buckets.html')
+
+@app.route('/bucketlist/<newmarket>', methods=["POST", "GET"])
+def bucketlist(username,bucketname):
+    return render_template("samplebucketlist1.html")
 
 @app.route('/login', methods=["POST", "GET"])
 def login():
@@ -20,14 +24,4 @@ def login():
 @app.route('/', methods=["POST", "GET"])
 def home():
     """Renders the home/create account page."""
-    if request.method == "POST":
-        session["firstname"] = request.form["firstname"]
-        session["email"] = request.form["emailaddress"]
-        session["password"] = request.form["password"]
-        return redirect('/login')
-    else:
-        return render_template( 'create-account.html' )
-
-
-
-
+    return render_template( 'create-account.html' )
