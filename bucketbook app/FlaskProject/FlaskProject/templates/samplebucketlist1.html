@@ -1,20 +1,25 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>{{bucketname}}</title>
+    <title>{{newbucket}}</title>
 	<meta charset="utf-8" />
-    <link href="../static/content/samplebucketlist1css.css" rel="stylesheet" />
+    <link href="{{url_for("static", filename="content/samplebucketlist1css.css")}}" rel="stylesheet" />
 </head>
 <body>
-    <script src="../static/scripts/addscript.js"></script>
     <div id="myDIV" class="header">
         <h2>My Goals</h2>
-        <input type="text" id="myInput" placeholder="Title...">
-        <span onclick="newElement()" class="addBtn">Add</span>
+        <form action="{{url_for("bucketlist", newbucket=session["newbucket"], firstname=session["firstname"])}}" method="post" >
+            <input type="text" id="myInput" placeholder="Title..." name="newlist">
+            <input type="submit" name="addbtn" class="addbtn" value="Add" />
+        </form>
     </div>
 
     <ul id="myUL">
-        <li>sample</li>
+        {% if not session["bucketitems"] %}
+            <li>sample</li>
+        {% else %}
+            <li>cow</li>
+        {% endif %}
     </ul> 
 </body>
 </html>

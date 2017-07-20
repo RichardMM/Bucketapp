@@ -7,21 +7,45 @@ from FlaskProject import app
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
-@app.route('/<firstname>/my_buckets/<bucketname>', methods=["POST", "GET"])
-def mybuckets():
+@app.route('/mybuckets/<firstname>', methods=["POST", "GET"])
+def mybuckets(firstname):
     """Renders the my buckets page."""
-    return render_template('my buckets.html')
+    if request.method=="POST": 
+        session["newbucket"] = request.form["newbucket"]
+        return redirect(url_for("bucketlist", firstname=session["firstname"], newbucket=session["newbucket"]))
+    else:
+        return render_template('my buckets.html')
 
 @app.route('/<firstname>/bucketlist/<newbucket>', methods=["POST", "GET"])
 def bucketlist(firstname, newbucket):
+    """ Renders a bucketlists page"""
+    session["bucketitems"] = []
+    if request.method=="POST":
+        newitem = request.form["newlist"]
+        session["bucketitems"].append(newitem)
+        return redirect(url_for("bucketlist", firstname=session["firstname"], newbucket=session["newbucket"]))
     return render_template("samplebucketlist1.html")
 
 @app.route('/login', methods=["POST", "GET"])
 def login():
     """Renders the login page."""
-    return render_template('login.html')
+    if request.method == "POST":
+        email = request.form["email"]
+        password = request.form["password"]
+        if email==session["email"] and password==session["password"]:
+            return redirect(url_for("mybuckets", firstname=session["firstname"]))
+        else:
+            render_template('login.html')
+    else:
+        return render_template('login.html')
 
 @app.route('/', methods=["POST", "GET"])
 def home():
     """Renders the home/create account page."""
-    return render_template( 'create-account.html' )
+    if request.method == "POST":
+        session["firstname"] = request.form["firstname"]
+        session["email"] = request.form["emailaddress"]
+        session["password"] = request.form["password"]
+        return redirect('/login')
+    else:
+        return render_template( 'create-account.html' )

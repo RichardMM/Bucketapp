@@ -11,9 +11,9 @@
     <nav>
         <ul id="list">
             <li>
-                <form action="my buckets.html"  method="post">
+                <form role="form" action="{{url_for("mybuckets", firstname=session["firstname"])}}"  method="post">
                     <input type="text" name="newbucket" id="new-bucket-name" class="new-bucket-name" placeholder="Bucket name..."/>
-                    <input type="submit" name="addbtn" class="addbtn" onclick="newElement()" value="Add"/>
+                    <input type="submit" name="addbtn" class="addbtn"  value="Add"/>
                 </form>
             </li>
             <li><a href="Mybucketlist1.html">Sample</a></li>
