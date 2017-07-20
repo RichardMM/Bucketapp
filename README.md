@@ -15,5 +15,3 @@ Each page should be loaded individually as the login does not yet work.
   
 User can now create account, login and add new bucket
 
-
-Creting a new bucket for tody's task is done by adding:"/<newbucketname> to the bucketlist directory
