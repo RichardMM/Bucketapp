@@ -13,7 +13,7 @@ Each page should be loaded individually as the login does not yet work.
   3. My buckets page(is a sort of dashboard)
   4. Sample bucket list
   
-They can all be viewed from the views file by using "/<name>"
+User can now create account, login and add new bucket
 
 
 Creting a new bucket for tody's task is done by adding:"/<newbucketname> to the bucketlist directory
