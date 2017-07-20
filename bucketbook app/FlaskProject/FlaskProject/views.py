@@ -7,12 +7,12 @@ from FlaskProject import app
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
-@app.route('/my_buckets/', methods=["POST", "GET"])
+@app.route('/<firstname>/my_buckets/<bucketname>', methods=["POST", "GET"])
 def mybuckets():
     """Renders the my buckets page."""
     return render_template('my buckets.html')
 
-@app.route('/bucketlist/<firstname>/<newbucket>', methods=["POST", "GET"])
+@app.route('/<firstname>/bucketlist/<newbucket>', methods=["POST", "GET"])
 def bucketlist(firstname, newbucket):
     return render_template("samplebucketlist1.html")
 
