@@ -18,7 +18,7 @@
         {% if not session["bucketitems"] %}
             <li>sample</li>
         {% else %}
-            <li>cow</li>
+            <li>{{ session["bucketitems"] }}</li>
         {% endif %}
     </ul> 
 </body>
