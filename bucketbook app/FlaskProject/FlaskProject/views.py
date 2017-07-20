@@ -12,8 +12,8 @@ def mybuckets():
     """Renders the my buckets page."""
     return render_template('my buckets.html')
 
-@app.route('/bucketlist/<newbucket>', methods=["POST", "GET"])
-def bucketlist(newbucket):
+@app.route('/bucketlist/<firstname>/<newbucket>', methods=["POST", "GET"])
+def bucketlist(firstname, newbucket):
     return render_template("samplebucketlist1.html")
 
 @app.route('/login', methods=["POST", "GET"])
