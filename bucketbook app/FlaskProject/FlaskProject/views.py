@@ -12,8 +12,12 @@ def mybuckets(firstname):
     """Renders the my buckets page."""
     if request.method=="POST": 
         session["newbucket"] = request.form["newbucket"]
-        session["bucketitems"] = []
-        return redirect(url_for("bucketlist", firstname=session["firstname"], newbucket=session["newbucket"]))
+        if session["newbucket"] not in session["buckets"]:
+            session["buckets"].append(session["newbucket"])
+            session["bucketitems"]["newbucket"] = []
+            session.modified = True
+        #return redirect(url_for("bucketlist", firstname=session["firstname"], newbucket=session["newbucket"]))
+        return render_template('my buckets.html')
     else:
         return render_template('my buckets.html')
 
@@ -22,7 +26,7 @@ def bucketlist(firstname, newbucket):
     """ Renders a bucketlists page"""
     if request.method=="POST":
         newitem = request.form["newlist"]
-        session["bucketitems"].append(newitem)
+        session["bucketitems"]["newbucket"].append(newitem)
         session.modified = True
         return render_template("samplebucketlist1.html")
     return render_template("samplebucketlist1.html")
@@ -34,6 +38,9 @@ def login():
         email = request.form["email"]
         password = request.form["password"]
         if email==session["email"] and password==session["password"]:
+            # session storages
+            session["buckets"] = []
+            session["bucketitems"] = {}
             return redirect(url_for("mybuckets", firstname=session["firstname"]))
         else:
             render_template('login.html')
