@@ -15,10 +15,10 @@
     </div>
 
     <ul id="myUL">
-        {% if not session["bucketitems"] %}
+        {% if not session["bucketitems"]["newbucket"] %}
             <li>sample</li>
         {% else %}
-            {% for item in session["bucketitems"] %}
+            {% for item in session["bucketitems"]["newbucket"] %}
                 <li>{{ item }}</li>
             {% endfor %}
         {% endif %}

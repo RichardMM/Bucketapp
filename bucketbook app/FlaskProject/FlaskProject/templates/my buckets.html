@@ -16,7 +16,13 @@
                     <input type="submit" name="addbtn" class="addbtn"  value="Add"/>
                 </form>
             </li>
-            <li><a href="Mybucketlist1.html">Sample</a></li>
+            {% if not session["buckets"] %}
+                <li><a href="Mybucketlist1.html">Sample</a></li>
+            {% else %}
+                {% for name in session["buckets"] %}
+                    <li><a href="{{url_for("bucketlist", newbucket=name, firstname=session["firstname"])}}" >{{ name }}</a></li>
+                {% endfor %}
+            {% endif %}
         </ul>
     </nav>
 
