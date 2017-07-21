@@ -27,10 +27,6 @@ class FlaskBookshelfTests(unittest.TestCase):
     #    # assert the response data
     #    self.assertEqual(result.data, createaccount)
 
-    def test_mybucket(self):
-        #assert response
-        result = self.app.get('/bucketlist/samplebucket')
-        self.assertEqual(result.status_code, 200)
 
 if __name__ == '__main__':
     unittest.main()
