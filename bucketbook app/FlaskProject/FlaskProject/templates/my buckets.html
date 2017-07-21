@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>My buckets</title>
+	<meta charset="utf-8" />
+    <link href="../static/content/dashboardcss.css" rel="stylesheet" />
+</head>
+<body>
+    <script src="../static/scripts/addscript.js"></script>
+    <header><h5><a href="create account.html">My Profile</a></h5></header>
+    <nav>
+        <ul id="list">
+            <li>
+                <form role="form" action="{{url_for("mybuckets", firstname=session["firstname"])}}"  method="post">
+                    <input type="text" name="newbucket" id="new-bucket-name" class="new-bucket-name" placeholder="Bucket name..."/>
+                    <input type="submit" name="addbtn" class="addbtn"  value="Add"/>
+                </form>
+            </li>
+            <li><a href="Mybucketlist1.html">Sample</a></li>
+        </ul>
+    </nav>
+
+</body>
+</html>
