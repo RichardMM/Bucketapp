@@ -17,13 +17,14 @@ def mybuckets(firstname):
     else:
         return render_template('my buckets.html')
 
-@app.route('/<firstname>/bucketlist/<newbucket>', methods=["POST", "GET"])
+@app.route('/<firstname>/<newbucket>', methods=["POST", "GET"])
 def bucketlist(firstname, newbucket):
     """ Renders a bucketlists page"""
     if request.method=="POST":
         newitem = request.form["newlist"]
         session["bucketitems"].append(newitem)
-        return redirect(url_for("bucketlist", firstname=session["firstname"], newbucket=session["newbucket"]))
+        session.modified = True
+        return render_template("samplebucketlist1.html")
     return render_template("samplebucketlist1.html")
 
 @app.route('/login', methods=["POST", "GET"])

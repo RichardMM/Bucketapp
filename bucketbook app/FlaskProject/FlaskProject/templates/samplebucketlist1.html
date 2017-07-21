@@ -18,7 +18,9 @@
         {% if not session["bucketitems"] %}
             <li>sample</li>
         {% else %}
-            <li>{{ session["bucketitems"] }}</li>
+            {% for item in session["bucketitems"] %}
+                <li>{{ item }}</li>
+            {% endfor %}
         {% endif %}
     </ul> 
 </body>
