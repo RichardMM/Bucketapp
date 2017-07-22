@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/RichardMM/Andela_challenge.svg?branch=master)](https://travis-ci.org/RichardMM/Andela_challenge)
-# Andela_challenge
-Web app for andela challenge. The app allows user to create account, login create new buckets and add items to each bucket. Deleting items from a bucket list is still in development stages.
+# Bucketbook
+The app allows user to create account, login create new buckets and add items to each bucket. Deleting items from a bucket list is still in development stages.
 
 # Requirements:
 1. Python 3.5 
