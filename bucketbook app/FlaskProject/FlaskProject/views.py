@@ -11,9 +11,9 @@ from wtforms import StringField, BooleanField, PasswordField
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 
 class Loginform(FlaskForm):
-    email = StringField("email", validators=(InputRequired))
-    password = PasswordField("password", validators=(InputRequired))
-    remember = BooleanField("remember me")
+    email = StringField("email", validators=[InputRequired()])
+    password = PasswordField("password", validators=[InputRequired()])
+    remember = BooleanField("rememberme")
 
 
 @app.route('/mybuckets/<firstname>', methods=["POST", "GET"])
@@ -44,7 +44,7 @@ def bucketlist(firstname, newbucket):
 def login():
     """Renders the login page."""
     myform = Loginform()
-    if request.method == "POST":
+    if request.method=="POST":
         email = request.form["email"]
         password = request.form["password"]
         if email==session["email"] and password==session["password"]:
@@ -55,7 +55,7 @@ def login():
         else:
             render_template('login.html')
     else:
-        return render_template('login.html')
+        return render_template('login.html', form=myform)
 
 @app.route('/', methods=["POST", "GET"])
 def home():

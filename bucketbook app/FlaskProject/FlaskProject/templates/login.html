@@ -7,11 +7,13 @@
 </head>
 <body>
     <form action="/login" method="post">
-        <label for="email">Email address</label><br />
-        <input type="text" name="email" placeholder="email address" required/><br />
+        {{form.crsf_token}}
+        {{form.email.label}}<br />
+        {{form.email}}<br />
 
-        <label for="password" >Password</label><br />
-        <input type="password" name="password" placeholder="password" required/>
+        {{form.password.label}}<br />
+        {{form.password}}
+        
 
         <input type="submit" name="login" value="Login"/>
     </form>
