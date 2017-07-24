@@ -4,8 +4,17 @@ Routes and views for the bucketbook application.
 
 from flask import render_template, session, request, url_for, redirect
 from FlaskProject import app
+from flask_wtf import FlaskForm
+from wtforms.validators import InputRequired, Email, Length
+from wtforms import StringField, BooleanField, PasswordField
 
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+
+class Loginform(FlaskForm):
+    email = StringField("email", validators=(InputRequired))
+    password = PasswordField("password", validators=(InputRequired))
+    remember = BooleanField("remember me")
+
 
 @app.route('/mybuckets/<firstname>', methods=["POST", "GET"])
 def mybuckets(firstname):
@@ -34,6 +43,7 @@ def bucketlist(firstname, newbucket):
 @app.route('/login', methods=["POST", "GET"])
 def login():
     """Renders the login page."""
+    myform = Loginform()
     if request.method == "POST":
         email = request.form["email"]
         password = request.form["password"]

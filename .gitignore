@@ -155,3 +155,8 @@ __pycache__/
 /bucketbook app/obj/Debug/deployment-updated-pyvenv.cfg
 /bucketbook app/web.debug.config
 /bucketbook app/web.config
+/bin
+/obj/Debug
+/ptvs_virtualenv_proxy.py
+/web.config
+/web.debug.config
