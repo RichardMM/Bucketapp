@@ -44,9 +44,9 @@ def bucketlist(firstname, newbucket):
 def login():
     """Renders the login page."""
     myform = Loginform()
-    if request.method=="POST":
-        email = request.form["email"]
-        password = request.form["password"]
+    if myform.validate_on_submit():
+        email = myform.email.data
+        password = myform.password.data
         if email==session["email"] and password==session["password"]:
             # session storages
             session["buckets"] = []
@@ -55,6 +55,7 @@ def login():
         else:
             render_template('login.html')
     else:
+        print(myform.errors)
         return render_template('login.html', form=myform)
 
 @app.route('/', methods=["POST", "GET"])

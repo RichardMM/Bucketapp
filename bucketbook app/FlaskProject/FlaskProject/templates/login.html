@@ -7,12 +7,12 @@
 </head>
 <body>
     <form action="/login" method="post">
-        {{form.crsf_token}}
-        {{form.email.label}}<br />
-        {{form.email}}<br />
+        {{ form.csrf_token }}<br />
+        {{ form.email.label }}<br />
+        {{ form.email }}<br />
 
-        {{form.password.label}}<br />
-        {{form.password}}
+        {{ form.password.label }}<br />
+        {{ form.password }}
         
 
         <input type="submit" name="login" value="Login"/>
