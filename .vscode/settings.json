@@ -1,3 +1,11 @@
 // Place your settings in this file to overwrite default and user settings.
 {
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        ".\\bucketbook app",
+        "-p",
+        "test*.py"
+    ],
+    "python.unitTest.unittestEnabled": true
 }
