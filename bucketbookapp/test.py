@@ -33,7 +33,6 @@ class FlaskBookshelfTests(unittest.TestCase):
         self.assertIn(b"email", result.data)
         
     
-    def test_storage(self):
 
 
 if __name__ == '__main__':
