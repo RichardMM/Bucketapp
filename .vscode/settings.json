@@ -3,9 +3,10 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "-s",
-        ".\\bucketbook app",
-        "-p",
-        "test*.py"
+        "bucketbookapp/test.py",
     ],
-    "python.unitTest.unittestEnabled": true
+    "python.unitTest.unittestEnabled": true,
+    "python.unitTest.promptToConfigure": false,
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false
 }
