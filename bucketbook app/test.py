@@ -31,6 +31,10 @@ class FlaskBookshelfTests(unittest.TestCase):
                         "pswrepeat": "password"}
         result = self.app.post("/", data=account_data, follow_redirects=True)
         self.assertIn(b"email", result.data)
+        
+    
+    def test_storage(self):
+
 
 if __name__ == '__main__':
     unittest.main()
