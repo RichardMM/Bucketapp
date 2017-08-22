@@ -1,5 +1,5 @@
 import unittest
-from FlaskProject import app
+import bucketbookapp.flaskProject.app as app
 
 class FlaskBookshelfTests(unittest.TestCase): 
 
