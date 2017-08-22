@@ -3,7 +3,7 @@ Routes and views for the bucketbook application.
 """
 
 from flask import render_template, session, request, url_for, redirect
-from FlaskProject import app
+from bucketbookapp.flaskProject import app
 from flask_wtf import FlaskForm
 from wtforms.validators import InputRequired, Email, Length
 from wtforms import StringField, BooleanField, PasswordField

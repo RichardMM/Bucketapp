@@ -1,5 +1,9 @@
+"""
+tests for whole app
+"""
+
 import unittest
-import bucketbookapp.flaskProject.app as app
+from bucketbookapp.flaskProject import app
 
 class FlaskBookshelfTests(unittest.TestCase): 
 
