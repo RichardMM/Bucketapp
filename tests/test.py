@@ -3,7 +3,7 @@ tests for whole app
 """
 
 import unittest
-from bucketbookapp.flaskProject import app
+from ..flaskProject import app
 
 class FlaskBookshelfTests(unittest.TestCase): 
 
