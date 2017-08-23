@@ -1,7 +1,7 @@
 """
 tests for whole app
 """
-from bucketbookapp.flaskProject import app
+from flaskProject import app
 import unittest
 
 
@@ -44,7 +44,7 @@ class FlaskBookshelfTests(unittest.TestCase):
         with self.app as sess:
             self.app.post("/", data=self.account_data, follow_redirects=True)
             result = self.app.post("/login", data=self.login_data, follow_redirects=True)
-            
+
 
     
 
