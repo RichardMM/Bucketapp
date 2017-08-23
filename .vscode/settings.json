@@ -3,9 +3,9 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "s",
-        "C:\Users\Victor\Source\Repos\Bucketapp\",
+        "C:/Users/Victor/Source/Repos/Bucketapp",
         "-p",
-        "tests"
+        "test*"
     ],
     "python.unitTest.unittestEnabled": true,
     "python.unitTest.promptToConfigure": false,
