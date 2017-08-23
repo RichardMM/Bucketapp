@@ -65,6 +65,7 @@ class FlaskBookshelfTests(unittest.TestCase):
 
 
     def test_list_storage(self):
+        # test that items can be added to a bucket
         with self.app as p:
             self.app.post("/", data=self.account_data, follow_redirects=True)
             self.app.post("/login", data=self.login_data, follow_redirects=True)
@@ -73,8 +74,8 @@ class FlaskBookshelfTests(unittest.TestCase):
             response = self.app.post("/{}/test_bucket".format(self.account_data["firstname"]),
                           data={"newlist": "test_list"}, follow_redirects=True)
             # test that input was stored in session variable
-            # with p.session_transaction() as sess:
-            #     self.assertEqual(sess["bucketitems"]["test_bucket"][0], "test_list")
+            with p.session_transaction() as sess:
+                self.assertEqual(sess["bucketitems"]["test_bucket"][0], "test_list")
             #test that the new list is displayed on screen
             self.assertIn(b"test_list", response.data)
 
