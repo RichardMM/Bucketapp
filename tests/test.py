@@ -9,8 +9,17 @@ class FlaskBookshelfTests(unittest.TestCase):
 
     def setUp(self):
         # creates a test client
+        app.secret_key = "lkjhg646"
         self.app = app.test_client()
-        self.app.testing = True 
+        self.app.testing = True
+        self.account_data = {"firstname": "firstname",
+                        "surname": "surname", 
+                        "phone": "phone", 
+                        "emailaddress": "emailaddress", 
+                        "password": "password", 
+                        "pswrepeat": "password"}
+        self.login_data = {"emailaddress": "emailaddress",
+                           "password": "password", }
 
     def test_home(self):
         # sends HTTP GET request to the application
@@ -27,15 +36,16 @@ class FlaskBookshelfTests(unittest.TestCase):
 
     def test_creataccount(self):
         #test that creating an account works
-        account_data = {"firstname": "firstname",
-                        "surname": "surname", 
-                        "phone": "phone", 
-                        "emailaddress": "emailaddress", 
-                        "password": "password", 
-                        "pswrepeat": "password"}
-        result = self.app.post("/", data=account_data, follow_redirects=True)
+        result = self.app.post("/", data=self.account_data, follow_redirects=True)
         self.assertIn(b"email", result.data)
-        
+
+    def test_login(self):
+        # test that login works
+        with self.app as sess:
+            self.app.post("/", data=self.account_data, follow_redirects=True)
+            result = self.app.post("/login", data=self.login_data, follow_redirects=True)
+            
+
     
 
 
