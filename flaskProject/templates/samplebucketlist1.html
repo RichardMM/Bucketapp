@@ -8,17 +8,17 @@
 <body>
     <div id="myDIV" class="header">
         <h2>My Goals</h2>
-        <form action="{{url_for("bucketlist", newbucket=session["newbucket"], firstname=session["firstname"])}}" method="post" >
+        <form action="{{url_for("bucketlist", newbucket=session["currentbucket"], firstname=session["firstname"])}}" method="post" >
             <input type="text" id="myInput" placeholder="Title..." name="newlist">
             <input type="submit" name="addbtn" class="addbtn" value="Add" />
         </form>
     </div>
 
     <ul id="myUL">
-        {% if not session["bucketitems"]["newbucket"] %}
+        {% if not session["bucketitems"][session["currentbucket"]] %}
             <li>sample</li>
         {% else %}
-            {% for item in session["bucketitems"]["newbucket"] %}
+            {% for item in session["bucketitems"][session["currentbucket"]] %}
                 <li>{{ item }}</li>
             {% endfor %}
         {% endif %}

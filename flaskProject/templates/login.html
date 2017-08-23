@@ -6,6 +6,7 @@
     <link href="../static/content/logincss.css" rel="stylesheet" />
 </head>
 <body>
+    <header><h2 class="signin-heading">Login to start tracking your dreams</h2></header>
     <form action="/login" method="post">
         {{ form.csrf_token }}<br />
         {{ form.email.label }}<br />

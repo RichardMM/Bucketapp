@@ -20,10 +20,10 @@ class Loginform(FlaskForm):
 def mybuckets(firstname):
     """Renders the my buckets page."""
     if request.method=="POST": 
-        session["newbucket"] = request.form["newbucket"]
-        if session["newbucket"] not in session["buckets"]:
-            session["buckets"].append(session["newbucket"])
-            session["bucketitems"]["newbucket"] = []
+        newbucket = request.form["newbucket"]
+        if newbucket not in session["buckets"]:
+            session["buckets"].append(newbucket)
+            session["bucketitems"][newbucket] = []
             session.modified = True
         #return redirect(url_for("bucketlist", firstname=session["firstname"], newbucket=session["newbucket"]))
         return render_template('my buckets.html')
@@ -33,9 +33,11 @@ def mybuckets(firstname):
 @app.route('/<firstname>/<newbucket>', methods=["POST", "GET"])
 def bucketlist(firstname, newbucket):
     """ Renders a bucketlists page"""
+    session["currentbucket"] = newbucket
+    session.modified = True
     if request.method=="POST":
         newitem = request.form["newlist"]
-        session["bucketitems"]["newbucket"].append(newitem)
+        session["bucketitems"][session["currentbucket"]].append(newitem)
         session.modified = True
         return render_template("samplebucketlist1.html")
     return render_template("samplebucketlist1.html")
