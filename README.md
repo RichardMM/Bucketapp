@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/RichardMM/Bucketapp.svg?branch=master)](https://travis-ci.org/RichardMM/Bucketapp)
+[![Build Status](https://travis-ci.org/RichardMM/Bucketapp.svg?branch=master)](https://travis-ci.org/RichardMM/Bucketapp
 # Bucketbook
 The app allows user to create account, login create new buckets and add items to each bucket. Deleting items from a bucket list is still in development stages.
 
