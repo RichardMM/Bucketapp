@@ -3,7 +3,7 @@
     "python.unitTest.unittestArgs": [
         "-v",
         "s",
-        "C:/Users/Victor/Source/Repos/Bucketapp",
+        "./Bucketapp",
         "-p",
         "test*"
     ],
