@@ -51,8 +51,8 @@ def login():
         password = myform.password.data
         if email==session["email"] and password==session["password"]:
             # session storages
-            session["buckets"] = []
-            session["bucketitems"] = {}
+            session["buckets"] = []  # stores the buckets created
+            session["bucketitems"] = {} # has buckets as keys and a listof bucket items as the value
             return redirect(url_for("mybuckets", firstname=session["firstname"]))
         else:
             render_template('login.html')

@@ -59,7 +59,7 @@ class FlaskBookshelfTests(unittest.TestCase):
                           data={"newbucket": "test_bucket"}, follow_redirects=True)
             # test that input was stored in session variable
             with p.session_transaction() as sess:
-                self.assertEqual(sess["newbucket"], "test_bucket")
+                self.assertEqual(sess["buckets"][0], "test_bucket")
             #test that the new bucket is displayed on screen
             self.assertIn(b"test_bucket", response.data)
 
