@@ -9,4 +9,4 @@ install:
   - pip install pytest
 before script: "cd Bucketapp"
 # command to run tests
-script: python -m unittest discover 
+script: pytest -v
