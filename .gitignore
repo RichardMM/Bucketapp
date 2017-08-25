@@ -8,9 +8,6 @@
 *.user
 
 
-
-
-
 # Visual Studio 2015 cache/options directory and visual code directory
 .vscode/
 .vs/
